@@ -1,0 +1,138 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3AC6245B59FE594DD902',
+    participant: undefined
+  },
+  messageTimestamp: 1726070646,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '34604146544'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_f9f93972-7ef0-48ca-b667-23d598a1b2b2',
+  keyword: 'key_55b5e217-3170-4a17-a9f8-9b1ec83af3a8',
+  answer: '👋 ¡Hola!\nBienvenido, primeramente dime tu nombre por favor.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 500,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '75d304b0be22ebb09ee99b36198dcacd'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3A4455FC9BA5BF603013',
+    participant: undefined
+  },
+  messageTimestamp: 1726070649,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Ale',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ale',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3A4EAF89F509A7BBF479',
+    participant: undefined
+  },
+  messageTimestamp: 1726070654,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3A6A3ED7237941372B9C',
+    participant: undefined
+  },
+  messageTimestamp: 1726070658,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3A9058C68ACF10AF61F1',
+    participant: undefined
+  },
+  messageTimestamp: 1726070667,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3ABFD0713FD6735076F3',
+    participant: undefined
+  },
+  messageTimestamp: 1726070672,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'No',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'No',
+  from: '34604146544'
+}

@@ -1,0 +1,9 @@
+✨ ¡Gracias, ${nombre}! 
+Nuestro servicio de gestión de trámites para la nacionalidad cuesta **490€ IVA incluido**.
+Puedes pagar en **2 partes** o en **un solo pago** y te descontamos **50€** (total: 440€).
+🎯 Contarás con nuestro apoyo en cada paso del proceso, asegurándote de que todo se haga correctamente y sin estrés. ¡Deja que los expertos te guíen! 😊
+
+ ✨ ¡Gracias, ${nombre}!
+Nuestro servicio de gestión de trámites para la nacionalidad cuesta **490€ IVA incluido**.
+Puedes pagar en **2 partes**.
+🎯 Contarás con nuestro apoyo en cada paso del proceso, asegurándote de que todo se haga correctamente y sin estrés. ¡Deja que los expertos te guíen! 😊

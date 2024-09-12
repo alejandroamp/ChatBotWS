@@ -1,0 +1,323 @@
+const {
+  createBot,
+  createProvider,
+  createFlow,
+  addKeyword,
+  EVENTS,
+} = require("@bot-whatsapp/bot");
+
+const {
+  OPCIONES_NACIONALIDAD,
+  OPCIONES_MAS2ANOS,
+  OPCIONES_MENU,
+  mensajesGenerales,
+  menu,
+  nacionalidad,
+  cervantes,
+  mas2anos,
+} = require("./constantes");
+
+const QRPortalWeb = require("@bot-whatsapp/portal");
+const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+const MockAdapter = require("@bot-whatsapp/database/mock");
+const { delay } = require("@whiskeysockets/baileys");
+
+const validarRespuesta = (respuesta, opcionesValidas) => {
+  return opcionesValidas.includes(respuesta);
+};
+
+const flowNacionalidad = addKeyword(EVENTS.ACTION)
+  .addAnswer(
+    "Muy bien! Ahora, ¿cuánto tiempo llevas como residente legal en España? 🇪🇸",
+    {
+      delay: 200,
+    }
+  )
+  .addAnswer(
+    nacionalidad,
+    {
+      capture: true,
+      delay: 200,
+    },
+    async (ctx, { gotoFlow, flowDynamic, fallBack }) => {
+      if (!validarRespuesta(ctx.body, OPCIONES_NACIONALIDAD)) {
+        return fallBack(
+          "Respuesta no valida, por favor selecciona una de las opciones"
+        );
+      }
+      switch (ctx.body) {
+        case "1":
+          return gotoFlow(flowMas2Anos);
+        case "2":
+          return await flowDynamic(
+            "Gracias por la información. Estamos aquí para ayudarte cuando estés listo para avanzar en tu proceso de nacionalidad. 😊"
+          );
+        case "3":
+          return await flowDynamic(
+            "¡Estás casi allí! 🎯 Una vez cumplas los 2 años, estaremos listos para ayudarte a obtener tu nacionalidad. 😊"
+          );
+        case "4":
+          return await flowDynamic(
+            "No te preocupes, estamos aquí para guiarte. Contáctanos para recibir asesoría personalizada. 💬"
+          );
+      }
+    }
+  );
+
+const flowMas2Anos = addKeyword(EVENTS.ACTION).addAnswer(
+  cervantes,
+  {
+    capture: true,
+    delay: 200,
+  },
+  async (ctx, { gotoFlow, flowDynamic, fallBack, state }) => {
+    const myState = await state.getMyState();
+    console.log("Estado inicial en flowMas2Anos:", myState); // Verifica el estado inicial
+
+    // Validar la respuesta del usuario
+    if (!validarRespuesta(ctx.body, OPCIONES_MAS2ANOS)) {
+      return fallBack(
+        "Respuesta no valida, por favor selecciona una de las opciones"
+      );
+    }
+
+    // Guardar en el estado si el usuario tiene la prueba de Cervantes (opción 1) o no (opción 2)
+    await state.update({ tieneCervantes: ctx.body });
+    console.log(
+      "Estado actualizado en flowMas2Anos:",
+      await state.getMyState()
+    ); // Verifica el estado después de la actualización
+
+    switch (ctx.body) {
+      case "1":
+        await flowDynamic([
+          `¡Fantástico, ${myState.name}! 🌟 Ya estás en camino. Los requisitos brevemente son los siguientes:`,
+          { delay: 1000 },
+          mensajesGenerales.requisitos,
+        ]);
+        return gotoFlow(flowPresupuesto); // Redirige al flujo del presupuesto
+      case "2":
+        await flowDynamic([
+          `¡No te preocupes, ${myState.name}! Podemos ayudarte a reservar una plaza para el examen de Cervantes. 💪`,
+          { delay: 1000 },
+          "El costo aproximado del examen es de 85€, pagadero en la plataforma oficial.",
+          { delay: 1000 },
+          mensajesGenerales.requisitos,
+        ]);
+        return gotoFlow(flowPresupuesto); // Redirige al flujo del presupuesto
+    }
+  }
+);
+
+const flowPresupuesto = addKeyword(EVENTS.ACTION).addAnswer(
+  [
+    "¿Te gustaría conocer nuestro presupuesto para gestionar el trámite por ti? (Responde 'sí' o 'no')",
+  ],
+  {
+    capture: true,
+    delay: 200,
+  },
+  async (ctx, { flowDynamic, state }) => {
+    const myState = await state.getMyState();
+    console.log("Estado en flowPresupuesto:", myState); // Verifica el estado en el flujo del presupuesto
+
+    const respuesta = ctx.body.trim().toLowerCase();
+    console.log("Respuesta del usuario en flowPresupuesto:", respuesta); // Verifica la respuesta del usuario
+
+    const tieneCervantes = myState.tieneCervantes;
+    console.log("Valor de tieneCervantes:", tieneCervantes); // Verifica el valor de tieneCervantes
+
+    if (respuesta === "sí" || respuesta === "si") {
+      // Si el usuario tiene la prueba de Cervantes (descuento aplicado)
+      if (tieneCervantes == "1") {
+        await flowDynamic([
+          `✨ ¡Gracias, ${myState.name}!`,
+          "Nuestro servicio de gestión de trámites para la nacionalidad cuesta **490€ IVA incluido**.",
+          { delay: 1000 },
+          "Puedes pagar en **2 partes** o en **un solo pago** y te descontamos **50€** (total: 440€).",
+          { delay: 1000 },
+          "🎯 Contarás con nuestro apoyo en cada paso del proceso, asegurándote de que todo se haga correctamente y sin estrés. ¡Deja que los expertos te guíen! 😊",
+        ]);
+      } else {
+        // Si el usuario no tiene la prueba de Cervantes (sin descuento)
+        await flowDynamic([
+          `✨ ¡Gracias, ${myState.name}!`,
+          "Nuestro servicio de gestión de trámites para la nacionalidad cuesta **490€ IVA incluido**.",
+          { delay: 1000 },
+          "Puedes pagar en **2 partes**.",
+          { delay: 1000 },
+          "🎯 Contarás con nuestro apoyo en cada paso del proceso, asegurándote de que todo se haga correctamente y sin estrés. ¡Deja que los expertos te guíen! 😊",
+        ]);
+      }
+    } else if (respuesta === "no") {
+      // Mensaje de agradecimiento si responde "no"
+      await flowDynamic([
+        `Gracias por tu respuesta, ${myState.name}.`,
+        { delay: 1000 },
+        "Si en algún momento decides continuar con el trámite, estaremos aquí para ayudarte. ¡No dudes en contactarnos! 😊",
+      ]);
+    } else {
+      // Respuesta inválida: vuelve a preguntar "sí" o "no"
+      await flowDynamic("Por favor responde 'sí' o 'no' para continuar.");
+    }
+  }
+);
+
+/* const flowMenos2Anos = addKeyword(EVENTS.ACTION).addAnswer(
+  "Gracias por la información. Estamos aquí para ayudarte cuando estés listo para avanzar en tu proceso de nacionalidad. 😊"
+);
+
+const flowCasi2Anos = addKeyword(EVENTS.ACTION).addAnswer(
+  "¡Estás casi allí! 🎯 Una vez cumplas los 2 años, estaremos listos para ayudarte a obtener tu nacionalidad. 😊"
+);
+
+const flowNoResidente = addKeyword(EVENTS.ACTION).addAnswer(
+  "No te preocupes, estamos aquí para guiarte. Contáctanos para recibir asesoría personalizada. 💬"
+); */
+
+const flowResidencias = addKeyword(EVENTS.ACTION).addAnswer(
+  "Este es el flujo de residencias"
+);
+
+const flowEstudiantes = addKeyword(EVENTS.ACTION).addAnswer(
+  "Este es el flujo de estudiantes"
+);
+
+const flowEmpleo = addKeyword(EVENTS.ACTION).addAnswer(
+  "Este es el flujo de Empleo"
+);
+
+const flowNomadaDigital = addKeyword(EVENTS.ACTION).addAnswer(
+  "Este es el flujo de asilo"
+);
+
+const flowAsilo = addKeyword(EVENTS.ACTION).addAnswer(
+  "Este es el flujo de asilo"
+);
+
+const flowWelcome = addKeyword(EVENTS.WELCOME).addAnswer(
+  ["👋 ¡Hola!", "Bienvenido, primeramente dime tu nombre por favor."],
+  {
+    capture: true,
+    delay: 500,
+  },
+  async (ctx, { flowDynamic, fallBack, gotoFlow, state }) => {
+    if (isNaN(ctx.body) === false) {
+      return fallBack("Disculpa no entendi...");
+    } else {
+      await state.update({ name: ctx.body });
+      const myState = await state.getMyState();
+      await flowDynamic(`Encantada *${myState.name}*, continuamos...`);
+      return gotoFlow(flowMenu);
+    }
+  }
+);
+
+const flowMenu = addKeyword(EVENTS.ACTION).addAnswer(
+  menu,
+  { capture: true, delay: 2000 },
+  async (ctx, { gotoFlow, fallBack }) => {
+    if (!validarRespuesta(ctx.body, OPCIONES_MENU)) {
+      return fallBack(
+        "Respuesta no valida, por favor selecciona una de las opciones"
+      );
+    }
+    switch (ctx.body) {
+      case "1":
+        return gotoFlow(flowNacionalidad);
+      case "2":
+        return gotoFlow(flowResidencias);
+      case "3":
+        return gotoFlow(flowEstudiantes);
+      case "4":
+        return gotoFlow(flowEmpleo);
+      case "5":
+        return gotoFlow(flowAsilo);
+    }
+  }
+);
+
+/* const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
+
+const flowDocs = addKeyword(['doc', 'documentacion', 'documentación']).addAnswer(
+    [
+        '📄 Aquí encontras las documentación recuerda que puedes mejorarla',
+        'https://bot-whatsapp.netlify.app/',
+        '\n*2* Para siguiente paso.',
+    ],
+    null,
+    null,
+    [flowSecundario]
+)
+
+const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
+    [
+        '🙌 Aquí encontras un ejemplo rapido',
+        'https://bot-whatsapp.netlify.app/docs/example/',
+        '\n*2* Para siguiente paso.',
+    ],
+    null,
+    null,
+    [flowSecundario]
+)
+
+const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
+    [
+        '🚀 Puedes aportar tu granito de arena a este proyecto',
+        '[*opencollective*] https://opencollective.com/bot-whatsapp',
+        '[*buymeacoffee*] https://www.buymeacoffee.com/leifermendez',
+        '[*patreon*] https://www.patreon.com/leifermendez',
+        '\n*2* Para siguiente paso.',
+    ],
+    null,
+    null,
+    [flowSecundario]
+)
+
+const flowDiscord = addKeyword(['discord']).addAnswer(
+    ['🤪 Únete al discord', 'https://link.codigoencasa.com/DISCORD', '\n*2* Para siguiente paso.'],
+    null,
+    null,
+    [flowSecundario]
+)
+
+const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
+    .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
+    .addAnswer(
+        [
+            'te comparto los siguientes links de interes sobre el proyecto',
+            '👉 *doc* para ver la documentación',
+            '👉 *gracias*  para ver la lista de videos',
+            '👉 *discord* unirte al discord',
+        ],
+        null,
+        null,
+        [flowDocs, flowGracias, flowTuto, flowDiscord]
+    ) */
+
+const main = async () => {
+  const adapterDB = new MockAdapter();
+  const adapterFlow = createFlow([
+    flowWelcome,
+    flowMenu,
+    flowNacionalidad,
+    flowResidencias,
+    flowEstudiantes,
+    flowEmpleo,
+    flowAsilo,
+    flowNomadaDigital,
+    flowMas2Anos,
+    flowPresupuesto,
+  ]);
+  const adapterProvider = createProvider(BaileysProvider);
+
+  createBot({
+    flow: adapterFlow,
+    provider: adapterProvider,
+    database: adapterDB,
+  });
+
+  QRPortalWeb();
+};
+
+main();
