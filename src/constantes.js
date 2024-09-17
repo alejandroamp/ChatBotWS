@@ -17,6 +17,7 @@ try {
 }
 
 const OPCIONES_NACIONALIDAD = ["1", "2", "3", "4"];
+const OPCIONES_RESIDENCIAS = ["1", "2", "3", "4", "5", "6"];
 const OPCIONES_MAS2ANOS = ["1", "2"];
 const OPCIONES_MENU = ["1", "2", "3", "4", "5", "6", "7", "8"];
 
@@ -33,6 +34,7 @@ const mensajesGenerales = {
 // Exportar todas las constantes
 module.exports = {
   OPCIONES_NACIONALIDAD,
+  OPCIONES_RESIDENCIAS,
   OPCIONES_MAS2ANOS,
   OPCIONES_MENU,
   mensajesGenerales,
