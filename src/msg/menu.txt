@@ -6,5 +6,6 @@ Por favor, selecciona una opción:
 4️⃣ Bolsa de Empleo
 5️⃣ Escritos y Recursos de Asilo
 6️⃣ Nómada Digital/Teletrabajador
-7️⃣ Agendar Asesoría
-8️⃣ Otras Consultas
+7️⃣ Curso CAP para Conductores
+8️⃣ Agendar Asesoría
+9️⃣ Otras Consultas/Soy Cliente

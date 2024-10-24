@@ -15,7 +15,9 @@ const flowMas2Anos = require("./flows/flowMas2Anos");
 const flowPresupuesto = require("./flows/flowPresupuesto");
 const flowNomadaDigital = require("./flows/flowNomadaDigital");
 const flowAsesorias = require("./flows/flowAsesorias");
-const flowOtrasConsultas = require("./flows/flowOtrasConsultas");
+const flowCAP = require("./flows/flowAsesorias");
+const flowOtrasConsultasClientes = require("./flows/flowOtrasConsultasClientes");
+const { getBlackList } = require("./blacklist"); // Importamos la lista negra
 
 const main = async () => {
   const adapterDB = new MockAdapter();
@@ -31,15 +33,19 @@ const main = async () => {
     flowMas2Anos,
     flowPresupuesto,
     flowAsesorias,
-    flowOtrasConsultas,
+    flowOtrasConsultasClientes,
+    flowCAP,
   ]);
   const adapterProvider = createProvider(BaileysProvider);
 
-  createBot({
-    flow: adapterFlow,
-    provider: adapterProvider,
-    database: adapterDB,
-  });
+  createBot(
+    {
+      flow: adapterFlow,
+      provider: adapterProvider,
+      database: adapterDB,
+    },
+    { blackList: getBlackList() } // Pasamos la lista negra directamente a la configuración del bot
+  );
 
   QRPortalWeb();
 };

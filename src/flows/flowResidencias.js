@@ -31,7 +31,6 @@ const flowResidencias = addKeyword(EVENTS.ACTION).addAnswer(
           "🔹 Pasaporte completo.",
           "🔹 Certificado de empadronamiento.",
           "🔹 Antecedentes penales de tu país (apostillados).",
-          "🔹 Acta de nacimiento apostillada.",
           "🔹 Pruebas que demuestren la permanencia en España durante los dos años.",
         ]);
         break;
@@ -39,15 +38,13 @@ const flowResidencias = addKeyword(EVENTS.ACTION).addAnswer(
       case "2":
         await flowDynamic([
           "🤝 *Arraigo social*",
-          "Costo del trámite: *600€*.",
+          "Costo del trámite: *605€*.",
           "\n*Requisitos*:",
           "🔹 3 años de permanencia en España.",
           "🔹 Pre contrato de trabajo.",
           "🔹 Empadronamiento.",
           "🔹 Pasaporte completo.",
           "🔹 Antecedentes penales.",
-          "🔹 Acta de nacimiento.",
-          "🔹 Informe de integración social.",
           "🔹 Algunas comunidades autónomas pueden solicitar otros requisitos.",
         ]);
         break;
@@ -57,10 +54,11 @@ const flowResidencias = addKeyword(EVENTS.ACTION).addAnswer(
           "👪 *Arraigo familiar*",
           "Costo del trámite: *490€*.",
           "\n*Requisitos*:",
-          "🔹 Ser padre o madre de un menor de nacionalidad española, o hijo de un ciudadano español.",
-          "🔹 Certificado de empadronamiento.",
+          "🔹 Ser pareja o conyuge de Español, padre o madre de un menor de nacionalidad española, hijo menor de 21 años de un ciudadano español, o hijos mayores a cargo, o padre, madre de Español mayor de 65 años a cargo",
+          "🔹 Certificado de empadronamiento coelctivo.",
           "🔹 Pasaporte completo.",
           "🔹 Antecedentes penales de tu país.",
+          "🔹 Prueba del vinculo con el ciudadano Español (acta de matrimonio, acta de nacimiento)",
           "🔹 Acta de nacimiento.",
         ]);
         break;
@@ -71,33 +69,37 @@ const flowResidencias = addKeyword(EVENTS.ACTION).addAnswer(
           "Costo del trámite: *490€*.",
           "\n*Requisitos*:",
           "🔹 Ser familiar de un ciudadano de la Unión Europea o del Espacio Económico Europeo.",
-          "🔹 Certificado de empadronamiento.",
+          "🔹 Certificado de empadronamiento colectivo.",
           "🔹 Pasaporte del solicitante y del familiar comunitario.",
           "🔹 Documento que acredite el vínculo familiar (matrimonio, pareja registrada, etc.).",
           "🔹 Seguro médico y medios económicos.",
+          "🔹 Medios económicos.",
         ]);
         break;
 
       case "5":
         await flowDynamic([
           "🌍 *Nómada digital*",
-          "Costo del trámite: *490€*.",
+          "Costo del trámite: *790*.",
           "\n*Requisitos*:",
-          "🔹 Ser un profesional altamente cualificado o freelancer que trabaja para una empresa fuera de España.",
+          "🔹 Trabajar de forma remota o freelancer que trabaja para una empresa fuera de España minimo 3 meses de antiguedad",
+          "🔹 Demostrar la actividad de la empresa o empresas y su antiguedad (mas de 1 años constituida).",
           "🔹 Demostrar que el trabajo se realiza de forma remota.",
           "🔹 Seguro médico privado.",
-          "🔹 Prueba de ingresos suficientes (mínimo 2.000€ mensuales).",
+          "🔹 Prueba de ingresos suficientes 2 Salarios Minimos Interprofesional(mínimo 2.700€ mensuales).",
           "🔹 Pasaporte completo.",
+          "🔹 Copia de la titulacion academica relacionada con la actividad o acreditacion de experiencia profesional minima de 3 años.",
+          "🔹 Antecedentes penales del los paises en los que has vivido los ultimos 5 años",
         ]);
         break;
 
       case "6":
         await flowDynamic([
           "💼 *Residencia no lucrativa*",
-          "Costo del trámite: *490€*.",
+          "Costo del trámite: *700€*.",
           "\n*Requisitos*:",
           "🔹 No realizar actividades laborales o profesionales en España.",
-          "🔹 Demostrar medios económicos suficientes para ti y tu familia (mínimo 27.000€ al año).",
+          "🔹 Demostrar medios económicos suficientes para ti y tu familia (mínimo 30.000€ al año).",
           "🔹 Seguro médico privado.",
           "🔹 Certificado de antecedentes penales.",
           "🔹 Pasaporte completo.",

@@ -8,9 +8,9 @@ const flowPresupuesto = addKeyword(EVENTS.ACTION)
     ],
     {
       capture: true,
-      delay: 200,
+      delay: 300,
     },
-    async (ctx, { flowDynamic, state, endFlow }) => {
+    async (ctx, { flowDynamic, state }) => {
       const myState = await state.getMyState();
       console.log("Estado en flowPresupuesto:", myState); // Verifica el estado en el flujo del presupuesto
 
@@ -20,7 +20,7 @@ const flowPresupuesto = addKeyword(EVENTS.ACTION)
       const tieneCervantes = myState.tieneCervantes;
       console.log("Valor de tieneCervantes:", tieneCervantes); // Verifica el valor de tieneCervantes
 
-      if (respuesta === "sí" || respuesta === "si") {
+      if (respuesta === "sí" || respuesta === "si" || respuesta === "1") {
         // Si el usuario tiene la prueba de Cervantes (descuento aplicado)
         if (tieneCervantes == "1") {
           await flowDynamic([
@@ -46,7 +46,7 @@ const flowPresupuesto = addKeyword(EVENTS.ACTION)
         // Mensaje de agradecimiento si responde "no"
         await flowDynamic([
           `Gracias por tu respuesta, ${myState.name}.`,
-          { delay: 1000 },
+          //{ delay: 1000 },
           "Si en algún momento decides continuar con el trámite, estaremos aquí para ayudarte. ¡No dudes en contactarnos! 😊",
         ]);
       } else {
@@ -56,6 +56,16 @@ const flowPresupuesto = addKeyword(EVENTS.ACTION)
     }
   )
   .addAnswer(
+    [
+      "Si tienes dudas puedes agendar una llamda **GRATUITA** de 10min con la abogada para que te explique el proceso",
+      "👉 https://calendly.com/abgcedenoextranjeria/obten-tu-nacionalidad 👈",
+    ],
+    { delay: 200 }
+  );
+/*   .addAnswer(["Volviendo..."], { delay: 1000 }, async (_, { gotoFlow }) => {
+    return gotoFlow(require("./flowMenu.js"));
+  }); */
+/* .addAnswer(
     "¿Te gustaría volver al menú principal? (Responde 'sí' o 'no')",
     { capture: true, delay: 200 },
     async (ctx, { gotoFlow, flowDynamic }) => {
@@ -73,6 +83,6 @@ const flowPresupuesto = addKeyword(EVENTS.ACTION)
         await flowDynamic("Por favor responde 'sí' o 'no' para continuar.");
       }
     }
-  );
+  ); */
 
 module.exports = flowPresupuesto;

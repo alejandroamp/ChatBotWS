@@ -26,9 +26,11 @@ const flowMenu = addKeyword(EVENTS.ACTION).addAnswer(
       case "6":
         return gotoFlow(require("./flowNomadaDigital.js"));
       case "7":
-        return gotoFlow(require("./flowAsesorias.js"));
+        return gotoFlow(require("./flowCAP.js"));
       case "8":
-        return gotoFlow(require("./flowOtrasConsultas.js"));
+        return gotoFlow(require("./flowAsesorias.js"));
+      case "9":
+        return gotoFlow(require("./flowOtrasConsultasClientes.js"));
     }
   }
 );

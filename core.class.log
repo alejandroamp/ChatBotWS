@@ -1,0 +1,384 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3A1093766CEC9CF984C2',
+    participant: undefined
+  },
+  messageTimestamp: 1729777908,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Hola',
+  from: '34604146544'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  keyword: 'key_b89a67f9-ffe7-4a19-97e2-bdca83bca1af',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e79b1962ff40479f1e4bca9611ab53aa'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  keyword: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '93810c21e0dbb400c37daa3b04300379'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_495b9e51-8cd2-4c2c-bcb9-b5d2d88b9e69',
+  keyword: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 100,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '46234507202665f256ed29b4df82ae72'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3AA09D95E0C73DEFDCA2',
+    participant: undefined
+  },
+  messageTimestamp: 1729777911,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Ale',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Ale',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3ADEA3977435D0F83331',
+    participant: undefined
+  },
+  messageTimestamp: 1729777914,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: '9',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '9',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3AA8C5F65EE3139B5449',
+    participant: undefined
+  },
+  messageTimestamp: 1729777918,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Jfjfjfjf',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Jfjfjfjf',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3ABF52B370F2667BE64C',
+    participant: undefined
+  },
+  messageTimestamp: 1729777924,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Jdjfjfjf',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Jdjfjfjf',
+  from: '34604146544'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  keyword: 'key_b89a67f9-ffe7-4a19-97e2-bdca83bca1af',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e79b1962ff40479f1e4bca9611ab53aa'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  keyword: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '93810c21e0dbb400c37daa3b04300379'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_495b9e51-8cd2-4c2c-bcb9-b5d2d88b9e69',
+  keyword: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 100,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '46234507202665f256ed29b4df82ae72'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3A587ABF0D97AC4688B0',
+    participant: undefined
+  },
+  messageTimestamp: 1729777933,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Jdkfkfkf',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Jdkfkfkf',
+  from: '34604146544'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34604146544@s.whatsapp.net',
+    fromMe: false,
+    id: '3A3B08B834DF02B13AA3',
+    participant: undefined
+  },
+  messageTimestamp: 1729777968,
+  pushName: 'Alejandro Montes',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hdjdjdjf',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Hdjdjdjf',
+  from: '34604146544'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  keyword: 'key_b89a67f9-ffe7-4a19-97e2-bdca83bca1af',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e79b1962ff40479f1e4bca9611ab53aa'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  keyword: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '93810c21e0dbb400c37daa3b04300379'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_495b9e51-8cd2-4c2c-bcb9-b5d2d88b9e69',
+  keyword: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 100,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '46234507202665f256ed29b4df82ae72'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '34613783407@s.whatsapp.net',
+    fromMe: false,
+    id: '3AC5ECB341C625329F22',
+    participant: undefined
+  },
+  messageTimestamp: 1729778079,
+  pushName: 'Karla Rodriguez Montero',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage { text: 'Hola', contextInfo: [ContextInfo] },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Hola',
+  from: '34613783407'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  keyword: 'key_b89a67f9-ffe7-4a19-97e2-bdca83bca1af',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e79b1962ff40479f1e4bca9611ab53aa'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  keyword: 'ans_eea84a05-6ef4-4098-8818-317520c9291f',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '93810c21e0dbb400c37daa3b04300379'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_495b9e51-8cd2-4c2c-bcb9-b5d2d88b9e69',
+  keyword: 'ans_a7808092-d1f2-4d9b-8aa9-2e02124b9085',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 100,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '46234507202665f256ed29b4df82ae72'
+}

@@ -16,10 +16,11 @@ try {
   console.error("Error al leer los archivos:", error);
 }
 
-const OPCIONES_NACIONALIDAD = ["1", "2", "3", "4"];
+const OPCIONES_NACIONALIDAD = ["1", "2", "3"];
 const OPCIONES_RESIDENCIAS = ["1", "2", "3", "4", "5", "6"];
 const OPCIONES_MAS2ANOS = ["1", "2"];
-const OPCIONES_MENU = ["1", "2", "3", "4", "5", "6", "7", "8"];
+const OPCIONES_MENU = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const ADMIN_NUMBER = "+34600083076";
 
 const mensajesGenerales = {
   requisitos: [
@@ -28,6 +29,12 @@ const mensajesGenerales = {
     "3. Certificado de antecedentes penales.",
     "4. Certificado de empadronamiento.",
     "5. Certificado de aprobación del examen de Cervantes.",
+    "6. En caso de matrimonio, acta de matrimonio.",
+    "7. Pruebas de permanencia continuada en España.",
+    "*Si estas casad@ con un ciudadano Español o tienes Padre, Madre o Abuelo Español necesitaras presentar:",
+    "8. Acta de nacimiento del Español (Padre, Madre o Abuelo)",
+    "9. Acta de Matrimonio con ciudadan@ Español",
+    "10. Padron Colectivo con el o la ciudadan@ Español",
   ].join("\n"),
 };
 
@@ -37,9 +44,9 @@ module.exports = {
   OPCIONES_RESIDENCIAS,
   OPCIONES_MAS2ANOS,
   OPCIONES_MENU,
+  ADMIN_NUMBER,
   mensajesGenerales,
   menu,
   nacionalidad,
   cervantes,
-  mas2anos,
 };

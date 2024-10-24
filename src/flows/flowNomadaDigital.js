@@ -5,7 +5,7 @@ const flowNomadaDigital = addKeyword(EVENTS.ACTION)
   .addAnswer(
     [
       "🌍 *Nómada Digital en España* 🌍",
-      "\n¿Te gustaría vivir y trabajar como nómada digital en España? ¡Extremadura te está esperando con una oportunidad increíble! 💼",
+      "\n¿Trabajas como nómada digital y te gustaria vivir en España? ¡Extremadura te está esperando con una oportunidad increíble! 💼",
       "\n✨ *Extremadura está ofreciendo hasta 15.000€ en ayudas para nómadas digitales*. Es una oportunidad única para establecerte en una de las regiones más hermosas de España y aprovechar sus recursos y conectividad. 💶",
     ],
     { delay: 300 }

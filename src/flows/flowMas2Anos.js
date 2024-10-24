@@ -16,11 +16,10 @@ const flowMas2Anos = addKeyword(EVENTS.ACTION).addAnswer(
   async (ctx, { gotoFlow, flowDynamic, fallBack, state }) => {
     const myState = await state.getMyState();
     console.log("Estado inicial en flowMas2Anos:", myState); // Verifica el estado inicial
-
     // Validar la respuesta del usuario
     if (!validarRespuesta(ctx.body, OPCIONES_MAS2ANOS)) {
       return fallBack(
-        "Respuesta no valida, por favor selecciona una de las opciones"
+        'Respuesta no válida, por favor escribe 1 para "SI" o 2 para "NO".'
       );
     }
 
@@ -34,7 +33,7 @@ const flowMas2Anos = addKeyword(EVENTS.ACTION).addAnswer(
     switch (ctx.body) {
       case "1":
         await flowDynamic([
-          `¡Fantástico, ${myState.name}! 🌟 Ya estás en camino. Los requisitos brevemente son los siguientes:`,
+          `¡Fantástico, ${myState.name}! 🌟 Estos son algunos de los requisitos formales:`,
           { delay: 1000 },
           mensajesGenerales.requisitos,
         ]);
